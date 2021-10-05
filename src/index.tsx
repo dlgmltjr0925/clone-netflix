@@ -3,15 +3,12 @@ import "./index.css";
 import App from "./App";
 import React from "react";
 import ReactDOM from "react-dom";
-import { Router } from "react-router";
-import { createBrowserHistory } from "history";
+import { BrowserRouter as Router } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
-
-const history = createBrowserHistory();
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router history={history}>
+    <Router>
       <App />
     </Router>
   </React.StrictMode>,

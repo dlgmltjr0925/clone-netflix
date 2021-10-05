@@ -1,15 +1,23 @@
 import react, { useEffect } from "react";
-
-import { useHistory } from "react-router";
+import { useHistory, useLocation } from "react-router";
 
 function NoMatch() {
+  const location = useLocation();
   const history = useHistory();
 
   useEffect(() => {
-    history.replace(
-      `NotFound?prev=${encodeURIComponent(window.location.href)}`
-    );
-  }, [history]);
+    const language = "/" + navigator.language.slice(-2).toLowerCase();
+
+    if (!new RegExp(`^${language}`).test(location.pathname)) {
+      console.log("Change language", `${language}${location.pathname}`);
+      const url = `${language}${location.pathname}`;
+      history.replace(url);
+    } else {
+      console.log("Move to Not Found page");
+      const url = `/NotFound?prev=${encodeURIComponent(window.location.href)}`;
+      history.replace(url);
+    }
+  }, [history, location.pathname]);
 
   return null;
 }
