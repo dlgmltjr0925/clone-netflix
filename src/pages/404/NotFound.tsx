@@ -1,10 +1,7 @@
-import "./NotFound.css";
-
 import { Link } from "react-router-dom";
-import react from "react";
 import styled from "styled-components";
 
-function NotFound() {
+export function NotFound() {
   return (
     <Wrapper dir="ltr" data-uia="page-404">
       <div className="extended-diacritics-language">

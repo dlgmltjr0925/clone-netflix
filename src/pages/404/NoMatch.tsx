@@ -1,7 +1,8 @@
-import react, { useEffect } from "react";
 import { useHistory, useLocation } from "react-router";
 
-function NoMatch() {
+import { useEffect } from "react";
+
+export default function NoMatch() {
   const location = useLocation();
   const history = useHistory();
 
@@ -21,5 +22,3 @@ function NoMatch() {
 
   return null;
 }
-
-export default NoMatch;
